@@ -2,8 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymysql.cursors
-from dotenv import load_dotenv
-
+from dotenv import load_dotenv, find_dotenv
 # Load environment variables from .env file
 # load_dotenv()
 # print("DEBUG: .env variables loaded.") # 디버깅용
