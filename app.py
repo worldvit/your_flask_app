@@ -43,11 +43,11 @@ DB_CONFIG = {
     'charset': 'utf8mb4',
     'cursorclass': pymysql.cursors.DictCursor
 }
-print(f"DEBUG_ENV: FLASK_SECRET_KEY={os.getenv('FLASK_SECRET_KEY')}") # 디버깅용
-print(f"DEBUG_ENV: DB_HOST={os.getenv('DB_HOST')}") # 디버깅용
-print(f"DEBUG_ENV: DB_USER={os.getenv('DB_USER')}") # 디버깅용
-print(f"DEBUG_ENV: DB_PASSWORD={os.getenv('DB_PASSWORD')}") # 디버깅용
-print(f"DEBUG_ENV: DB_NAME={os.getenv('DB_NAME')}") # 디버깅용
+# print(f"DEBUG_ENV: FLASK_SECRET_KEY={os.getenv('FLASK_SECRET_KEY')}") # 디버깅용
+# print(f"DEBUG_ENV: DB_HOST={os.getenv('DB_HOST')}") # 디버깅용
+# print(f"DEBUG_ENV: DB_USER={os.getenv('DB_USER')}") # 디버깅용
+# print(f"DEBUG_ENV: DB_PASSWORD={os.getenv('DB_PASSWORD')}") # 디버깅용
+# print(f"DEBUG_ENV: DB_NAME={os.getenv('DB_NAME')}") # 디버깅용
 
 
 def get_db_connection():
