@@ -77,22 +77,6 @@ WSGIPythonPath /var/www/html/your_flask_app
 <VirtualHost *:80>
     ServerName 10.10.8.3
     ServerAdmin webmaster@localhost
-    WSGIScriptAlias / /var/www/html/your_flask_app/wsgi.py
-    <Directory /var/www/html/your_flask_app>
-        WSGIProcessGroup flask_auth_app
-        WSGIApplicationGroup %{GLOBAL}
-        Order deny,allow
-        Allow from all
-        Require all granted
-    </Directory>
-    WSGIDaemonProcess flask_auth_app user=www-data group=www-data threads=5 python-path=/var/www/html/your_flask_app/venv/lib/python3.12/site-packages
-    ErrorLog \${APACHE_LOG_DIR}/flask_auth_error.log
-    CustomLog \${APACHE_LOG_DIR}/flask_auth_access.log combined
-</VirtualHost>
-EOF
-
-a2ensite flask_auth.conf
-
-systemctl reload apache2
-
-sudo systemctl restart apache2
+    WSGIScriptAlias / /va기
+truncate -s 0 /var/log/apache2/flask_auth_error.log
+tail -n 100 /var/log/apache2/flask_auth_error.log
