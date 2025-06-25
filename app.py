@@ -5,8 +5,16 @@ import pymysql.cursors
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
-print("DEBUG: .env variables loaded.") # 디버깅용
+# load_dotenv()
+# print("DEBUG: .env variables loaded.") # 디버깅용
+#app = Flask(__name__)
+
+dotenv_path = find_dotenv('/var/www/html/your_flask_app/.env') # .env 파일의 실제 절대 경로 명시
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+    print("DEBUG: .env variables loaded from explicit path.")
+else:
+    print(f"WARNING: .env file not found at {dotenv_path}. Environment variables might not be loaded.")
 
 app = Flask(__name__)
 
