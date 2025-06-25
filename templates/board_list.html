@@ -21,6 +21,7 @@
         .logout-link { font-size: 0.9em; text-align: right; margin-top: 10px; }
     </style>
 </head>
+<!--
 <body>
     <div class="container">
         <div class="header">
@@ -40,6 +41,51 @@
 
         <p><a href="/board/write" class="write-button">Write New Post</a></p>
 
+        {% if posts %}
+            {% for post in posts %}
+                <div class="post-item">
+                    <h3><a href="/board/view/{{ post.id }}">{{ post.title }}</a></h3>
+                    <p>{{ post.content | truncate(100) }}</p>
+                    <p class="post-meta">
+                        By {{ post.username }} on {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}
+                        {% if post.created_at != post.updated_at %}(Updated: {{ post.updated_at.strftime('%Y-%m-%d %H:%M') }}){% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No posts found. Be the first to write one!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+-->
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Community Board</h2>
+            <div class="logout-link">
+                <p>Welcome, {{ username }}! | <a href="/dashboard">Dashboard</a> | <a href="/logout">Logout</a></p>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="action-buttons">
+            <a href="/board/write" class="write-button">Write New Post</a>
+        </div>
+
+        <div class="search-form" style="margin-bottom: 20px;">
+            <form action="/board" method="get">
+                <input type="text" name="query" placeholder="Search by title or content..." value="{{ search_query if search_query else '' }}" style="width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <button type="submit" style="width: 25%; padding: 8px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Search</button>
+            </form>
+        </div>
         {% if posts %}
             {% for post in posts %}
                 <div class="post-item">
