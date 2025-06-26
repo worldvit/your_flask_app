@@ -1,7 +1,7 @@
 -- 10.10.8.4
-sudo -i
-apt update
-apt install mariadb-server mariadb-client -y
+-- sudo -i
+-- apt update
+-- apt install mariadb-server mariadb-client -y
 
 -- 50-server.conf 파일 수정
 sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
