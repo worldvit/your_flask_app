@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;}
+        h1 { color: #333; margin-bottom: 30px; }
+        .feature-links a {
+            display: block; /* 블록 요소로 만들어서 한 줄에 하나씩 표시 */
+            width: 80%; /* 컨테이너의 80% 너비 */
+            margin: 15px auto; /* 중앙 정렬 및 상하 여백 */
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .feature-links a:hover {
+            background-color: #0056b3;
+        }
+        .logout-link { margin-top: 30px; }
+        .logout-link a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .logout-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>환영합니다, {{ username }}님!</h1>
+        <p>무엇을 도와드릴까요?</p>
+
+        <div class="feature-links">
+            <a href="/diary">일기쓰기</a>
+            <a href="/board">게시판 가기</a>
+            <a href="/todos">To-Do List</a> {# To-Do List 링크 추가 #}
+        </div>
+
+        <div class="logout-link">
+            <a href="/logout">로그아웃</a>
+        </div>
+    </div>
+</body>
+</html>
+
